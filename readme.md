@@ -1,6 +1,5 @@
 ## BaLaBaLaBaLa
-<div align=center> ![haha](img/1180747369.png)
-
+<div align=center> ![haha](img/1180747369.png)</div>
 
 
 ## Make A Stronger Code Livestock
