@@ -1,4 +1,4 @@
 ## Data Structure And Algorithm
 
 ### 0.Introduction
-[Introduction](0/readme.md)
+[introduction](0/readme.md)
