@@ -8,6 +8,10 @@ typedef struct Lnode
     struct Lnode *next;
 }Lnode, *LinkList;
 
+bool create_list()
+{
+    return true;
+}
 
 int main()
 {
