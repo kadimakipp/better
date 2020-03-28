@@ -3,14 +3,14 @@
 
 
 ## Make A Stronger Code Livestock
-- [] data structure and algorithm
+- [ ] data structure and algorithm
 
 
 to be add...
 
-    [comment]:
-            [] design patterns
-            [] machine learning
-            [] deep learning
-            [] math things
+
+[comment]: [ ] design patterns
+[comment]: [ ] machine learning
+[comment]: [ ] deep learning
+[comment]: [ ] math things
 
