@@ -8,16 +8,6 @@
 
 to be add...
 
-
 [comment]:
-    design patterns
-
-[comment]: 
-    machine learning
-
-[comment]:
-    deep learning
-
-[comment]:
-    math things
+sss
 
