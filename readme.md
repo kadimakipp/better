@@ -8,6 +8,9 @@
 
 to be add...
 
+
+
+
 [comment]:
-        design patterns, machine learning, deep learning, math things
+`design patterns, machine learning, deep learning, math things`
 
