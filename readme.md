@@ -10,11 +10,9 @@ to be add...
 
 
 
-
-[comment]:
-    design patterns, machine learning, deep learning, math things
-
-
 <!---
-fuck
+- [ ] design patterns
+- [ ] machine learning
+- [ ] deeplearning
+- [ ] math things
 -->
