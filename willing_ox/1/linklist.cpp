@@ -41,14 +41,48 @@ bool head_add(LinkList &L, int data)
 再把链表尾部node的next指针指向新node*/
 bool tail_add(LinkList &L, int data)
 {
-    Lnode *n = L->next;
-    while(n->next)
+    Lnode *n = L;
+    while(n->next)//从表头节点开始
     {
         n = n->next;
     }
     Lnode *new_n = new Lnode(data,NULL);
     n->next = new_n;
     return true;
+}
+/*查，查找一个节点.
+遍历链表，判断每个节点的值是否为要查找的值，直到找到该值或遍历到结尾，返回结果。
+*/
+Lnode* find_node(LinkList &L, int data)
+{
+    Lnode *n = L->next;
+    while(n)
+    {
+        if(n->data == data)
+            break;
+        n=n->next;
+    }
+    return n;
+}
+
+/*增，指定位置之后,
+先找到该节点，然后使新建节点，让新节点的next指向找到节点指向的内容，
+再让找到节点指向新建节点
+*/
+bool add_data(LinkList &L, int find, int data)
+{
+    Lnode *n=find_node(L, find);
+    if(!n)
+    {
+        std::cout<<"don't find "<<find<<std::endl;
+        return false;
+    }else{
+        std::cout<<"find success"<<std::endl;
+    }
+    Lnode *p = new Lnode(data,NULL);
+    p->next=n->next;
+    n->next=p;
+    return true;       
 }
 
 /*
@@ -108,6 +142,18 @@ int main()
         std::cout<<"list create fail"<<std::endl;
         return 0;
     }
+    std::cout<<"tail instert, 3 element"<<std::endl;
+    for(int i=0;i<3;i++)
+    {
+        int d;
+        std::cin>>d;
+        if(!tail_add(L,d))
+        {
+            std::cout<<"insert "<<d<<" fail"<<std::endl;
+        }
+    }
+    show_list(L);
+
     std::cout<<"head insert, 3 element"<<std::endl;
     for(int i=0;i<3;i++)
     {
@@ -119,18 +165,7 @@ int main()
         }
     }
     show_list(L);
-    std::cout<<"tail instert, 3 element"<<std::endl;
-    for(int i=0;i<3;i++)
-    {
-        int d;
-        std::cin>>d;
-        if(!tail_add(L,d))
-        {
-            std::cout<<"insert "<<d<<" fail"<<std::endl;
-        }
-    }
-    std::cout<<"show this list"<<std::endl;
-    show_list(L);
+    
     std::cout<<"will be delete node"<<std::endl;
     for(int i=0;i<3;i++)
     {
@@ -142,6 +177,19 @@ int main()
         }
         show_list(L);
     }
+    std::cout<<"insert b in after a"<<std::endl;
+    for(int i=0;i<3;i++)
+    {
+        int a,b;
+        std::cin>>a>>b;
+        if(!add_data(L, a, b))
+        {
+            std::cout<<"inster "<<b<<" in after "<<a<<" failed"<<std::endl;
+        }
+        show_list(L);
+    }
+
+
 
     return 0;
 }
