@@ -73,24 +73,29 @@ bool show_list(LinkList &L)
 
 /*
 删除,找到要删除的前一个节点，然后将其指针指向要删除的节点的指针。
+下面实现的方法比较麻烦，一个前指针一个前-1指针。为的是找到要删除的前一个节点。
 */
 bool delete_node(LinkList &L, int data)
 {
     if(!L->next)return false;
-    Lnode *n = L;
-    while(n->next->next)
+    Lnode *n = L->next;
+    Lnode *p = L;
+    while(n)
     {
-        // if(data == n->next->data)
-        // {
-        //     n->next=n->next->next;
-        //     break;//删除第一个
-        // }
-        // std::cout<<n->next->data<<std::endl;
-        // n->next->next=n->next->next->next;
-        std::cout<<"bug"<<std::endl;
-        n->next->next=n->next->next->next;
+        if(n->data==data)
+        {
+            break;
+        }
+        p = p->next;
+        n = n->next;
     }
-    std::cout<<"don't find"<<std::endl;
+    if(!p)
+        std::cout<<"don't find"<<std::endl;
+    else{
+        Lnode *d =p->next;
+        p->next=p->next->next;
+        delete d;
+    }
     return true;
 }
 
