@@ -37,8 +37,10 @@ bool head_add(LinkList &L, int data)
     return true;
 }
 /*增，尾插法,
-遍历链表到链表尾部的节点，然后创建一个新node,新node的next指针指向空，
-再把链表尾部node的next指针指向新node*/
+遍历链表到链表尾部的的前一个节点，然后创建一个新node,新node的next指针指向空，
+再把链表尾部node的next指针指向新node
+note: 这里是尾部的前一个节点，因为尾部最后的节点为NULL。所以这个节点是无效的。
+*/
 bool tail_add(LinkList &L, int data)
 {
     Lnode *n = L;
@@ -107,10 +109,12 @@ bool show_list(LinkList &L)
 
 /*
 删除,找到要删除的前一个节点，然后将其指针指向要删除的节点的指针。
-下面实现的方法比较麻烦，一个前指针一个前-1指针。为的是找到要删除的前一个节点。
+下面实现的方法比较麻烦，一个前指针一个前-1指针。为的是找到要删除的前一个节点。(被注释掉)
+简化版参考尾插法。
 */
 bool delete_node(LinkList &L, int data)
 {
+#if(0)
     if(!L->next)return false;
     Lnode *n = L->next;
     Lnode *p = L;
@@ -131,6 +135,26 @@ bool delete_node(LinkList &L, int data)
         delete d;
     }
     return true;
+#else
+    Lnode *n = L;
+    while(n->next)
+    {
+        if(n->next->data == data)
+        {
+            break;
+        }
+        n = n->next;
+    }
+    if(!n->next)//指定节点位置为空,n是指定节点的前一个节点
+        std::cout<<"don't find"<<std::endl;
+    else
+    {
+        Lnode *d = n->next;
+        n->next = d->next;
+        delete d;
+    }
+    return true;
+#endif
 }
 
 int main()
