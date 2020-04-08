@@ -7,3 +7,4 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 project(Algorithm)
 
 add_subdirectory(1)
+add_subdirectory(2)
