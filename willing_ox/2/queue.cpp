@@ -29,7 +29,7 @@ bool push(Circular_Queue &cq, int data)
         std::cout<<"Circular Queue is full"<<std::endl;
         return false;
     }
-    cq->base[cq-rear] = data;
+    cq->base[cq->rear] = data;
     cq->rear = (cq->rear+1)%MAXSIZE;
     return true;
 }
@@ -48,7 +48,7 @@ bool pop(Circular_Queue &cq, int &data)
 
 int main()
 {
-    Circular_Queue cq;
+    Circular_Queue cq(new queue);
     create_CQ(cq);
     std::cout<<"is empty -> "<<is_empty(cq)<<std::endl;
     std::cout<<"cq length -> "<<length_CQ(cq)<<std::endl;
@@ -59,25 +59,19 @@ int main()
         if(!push(cq,d))
         {
             std::cout<<"push fail"<<std::endl;
-        }else{
-            std::cout<<d<<"\t";
         }
     }
-    std::cout<<std::endl;
     std::cout<<"is empty -> "<<is_empty(cq)<<std::endl;
     std::cout<<"cq length -> "<<length_CQ(cq)<<std::endl;
-    for(int i=0;i<MAXSIZE-3;i++)
+    for(int i=0;i<MAXSIZE-1;i++)
     {
         int d;
         std::cin>>d;
         if(!push(cq,d))
         {
             std::cout<<"push fail"<<std::endl;
-        }else{
-            std::cout<<d<<"\t";
         }
     }
-    std::cout<<std::endl;
     std::cout<<"is empty -> "<<is_empty(cq)<<std::endl;
     std::cout<<"cq length -> "<<length_CQ(cq)<<std::endl;
     std::cout<<"****************************************"<<std::endl;
@@ -86,7 +80,7 @@ int main()
         int d;
         if(!pop(cq,d))
         {
-            std::cout<<"pop fail"<<std::endl
+            std::cout<<"pop fail"<<std::endl;
         }else{
             std::cout<<d<<"\t";
         }
@@ -94,12 +88,12 @@ int main()
     std::cout<<std::endl;
     std::cout<<"is empty -> "<<is_empty(cq)<<std::endl;
     std::cout<<"cq length -> "<<length_CQ(cq)<<std::endl;
-    for(int i=0;i<MAXSIZE-3;i++)
+    for(int i=0;i<MAXSIZE-1;i++)
     {
         int d;
         if(!pop(cq,d))
         {
-            std::cout<<"pop fail"<<std::endl
+            std::cout<<"pop fail"<<std::endl;
         }else{
             std::cout<<d<<"\t";
         }
@@ -107,5 +101,5 @@ int main()
     std::cout<<std::endl;
     std::cout<<"is empty -> "<<is_empty(cq)<<std::endl;
     std::cout<<"cq length -> "<<length_CQ(cq)<<std::endl;
-    return;
+    return 0;
 }
