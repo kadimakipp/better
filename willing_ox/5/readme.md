@@ -18,8 +18,14 @@
 
 树的存储结构
 采用顺序存储和链式存储两种形式。
-![bit_tree](../../img/bit_tree.png)
+
+![bit_tree](img/bit_tree.png)
+
 顺序存储方式
-![bit_tree_save_1](../../img/bit_tree_save_1.png)
+
+![bit_tree_save_1](img/bit_tree_save_1.png)
+
 链式存储方式
-![bit_tree_save_2](../../img/bit_tree_save_2.png)
+
+![bit_tree_save_2](img/bit_tree_save_2.png)
+
